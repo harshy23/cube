@@ -76,6 +76,18 @@ document.querySelector("#right").addEventListener("click",()=>movecube(1,0))
 document.querySelector("#up").addEventListener("click",()=>movecube(0,1))
 document.querySelector("#down").addEventListener("click",()=>movecube(0,-1))
 
+
+// to show mesaage on top 
+function showMessage(msg, isError = false) {
+  const messageEl = document.querySelector("#message");
+  messageEl.textContent = msg;
+  messageEl.style.color = isError ? "red" : "green";
+
+  setTimeout(() => {
+    messageEl.textContent = "";
+  }, 3000); // hides message after 3 seconds
+}
+
 // to fetch current properties of backend
 window.addEventListener("DOMContentLoaded", async () => {
   try {
@@ -90,10 +102,12 @@ window.addEventListener("DOMContentLoaded", async () => {
 
       // Update slider value
       document.querySelector("#rotaion").value = rotationx;
+       showMessage("Cube state loaded!");
     }
   } catch (err) {
     console.error("Failed to load cube state:", err);
-    document.querySelector("#message").textContent = res.message || "saved";
+
+   showMessage("Failed to load cube state", true);
   }
 });
 // to save properties
@@ -117,8 +131,10 @@ document.querySelector("#save").addEventListener("click", async () => {
 
     const result = await res.json();
     console.log(result.message || "Saved successfully");
+    showMessage(result.message || "Cube saved!");
   } catch (err) {
     console.error("Save failed:", err);
+    showMessage("Save failed!", true);
   }
 });
 
@@ -137,8 +153,10 @@ document.querySelector("#reset").addEventListener("click", async () => {
 
     const result = await res.json();
     console.log(result.message || "Reset successful");
+     showMessage(result.message || "Cube reset!");
   } catch (err) {
     console.error("Reset failed:", err);
+    showMessage("Reset failed!", true);
   }
 });
 
