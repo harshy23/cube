@@ -1,6 +1,9 @@
 import './style.css'
 import * as Three from "three";
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
+
 
 const scene = new Three.Scene();//this is conatiner which contain all other elelment like camera light etc.
 
@@ -76,7 +79,7 @@ document.querySelector("#down").addEventListener("click",()=>movecube(0,-1))
 // to fetch current properties of backend
 window.addEventListener("DOMContentLoaded", async () => {
   try {
-    const res = await fetch("http://localhost:5000/api/cubes/cube_1");
+    const res = await fetch(`${BASE_URL}/api/cubes/cube_1`);
     const data = await res.json();
 
     // Only apply if cube data exists
@@ -104,7 +107,7 @@ document.querySelector("#save").addEventListener("click", async () => {
   };
 
   try {
-    const res = await fetch("http://localhost:5000/api/cubes/cube_1/save", {
+    const res = await fetch(`${BASE_URL}/api/cubes/cube_1/save`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -128,7 +131,7 @@ document.querySelector("#reset").addEventListener("click", async () => {
   document.querySelector("#rotaion").value = "0";
 
   try {
-    const res = await fetch("http://localhost:5000/api/cubes/cube_1/reset", {
+    const res = await fetch(`${BASE_URL}/api/cubes/cube_1/reset`, {
       method: "POST"
     });
 
