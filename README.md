@@ -155,7 +155,7 @@ Code is well-commented, especially in:
 ## 🧑‍🎓 Author
 
 **Harsh Mishra**  
-Built as a full-stack internship assignment for FrameNext Innovations
+Built as a full-stack assignment for FrameNext Innovations
 
 ---
 
