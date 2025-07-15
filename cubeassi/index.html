@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+<body>
+    <h1>Cube Controller</h1>
+    <h3 id="message"></h3>
+    <div id="box_area"></div>
+    <div class="input">
+        <label for="rotaion">Rotaion speed:</label>
+        <input type="range"  min="0" max="0.1" step="0.01" value="0" id="rotaion"/>
+    
+
+        <div class="direction">
+          <button id="up">↑</button>
+          <div id="middle"> 
+            <button id="left">←</button>
+            <button id="right">→</button>
+         </div>
+       
+          <button id="down">↓</button>
+        </div>
+         
+        <div id="backend">
+            <button id="reset">Reset</button>
+           <button id="save">Save</button>
+        </div>
+
+
+    </div>
+
+    <script type="module"  src="/src/main.js"></script>
+</body>
+
+
+
+</html>
