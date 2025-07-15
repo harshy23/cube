@@ -39,4 +39,17 @@ A simple 3D cube rotation controller using **Three.js**, with full-stack functio
 ---
 
 ## 🗂️ Project Structure
+Cube3D/
+├── backend/
+│ ├── server.js
+│ ├── models/
+│ ├── package.json
+│ └── .env (not committed)
+├── cubeassi/ # frontend
+│ ├── index.html
+│ ├── main.js
+│ ├── style.css
+│ ├── vite.config.js
+│ ├── .env
+│ └── package.json
 
